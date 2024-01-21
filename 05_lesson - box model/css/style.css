@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    border: 10px ridge red;
+    border-right: 5px double blue;
+    
+    font-size: 1.5rem;
+
+    /* top right bottom left */
+    /* top  right&bottom  left */
+    /* top&bottom   right&left */
+
+    margin:1.5rem 2rem 1.5rem 2rem;
+
+    /* margin: 2rem;
+    margin-top: 1.5rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem; */
+
+    padding: 1rem 3rem 5rem 7rem;
+
+    /* outline is not added in box model equation, it doesn't take up space in it */
+    outline: 10px ridge rebeccapurple;
+    /* to push outline futher off the border so that it doesnt touch use outline-offset, this can be -ve and then outline is inside the border */
+    outline-offset: 3px;
+}
+/* 
+we wouldn't want these to apply on h1, we would apply these on the header, the ones that contains h1
+h1 {
+    border: 2px dashed red;
+    width: 400px;
+    padding: 0.5em;
+} */
+
+.circle{
+    /* auto can be for left and right only */
+    margin: 3rem auto;
+    background-color: gold;
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    outline: 2px solid red;
+    outline-offset: .25rem;
+    /* 50 px is half of width and height to make a circle */
+    border-radius: 50px;
+}

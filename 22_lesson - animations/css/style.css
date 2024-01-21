@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1.5rem;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+main {
+  flex-grow: 1; /*this is for the above flex mentioned in body, to have it extend to full display*/
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+div {
+  width: 200px;
+  height: 200px;
+  border: 3px solid #000;
+  /* below two have been used to easily center the emojis within the divs */
+  display: grid; 
+  place-content: center;
+}
+
+div:first-child{
+  background-color: dodgerblue;
+  /*percentage is based on the width of the div, not the parent or page or anything else*/
+  /* transform: translateX(-50%);  */
+  /* rorateX means take the mid horizontal on the item, assume an axis horintally through it, and rotate the axis, so at 90deg we cant see anything as it is perfectly horizontal */
+  /* transform: rotateX(50deg);  */
+  /* transform: scaleX(150%); */
+  /* transform: skewX(10deg); */
+}
+div:nth-child(2){
+  background-color: yellow;
+  /* transform: translateY(-2rem); */
+  /* transform: rotateY(45deg);  */
+  /* transform: scaleY(150%); */
+  /* transform: skewY(-10deg); */
+}
+div:last-child{
+  background-color: limegreen;
+  /* transform: translate(50%, -4rem); */
+  /* rotates clockwise, rotate is same as rotateZ */
+  /* transform: rotateZ(45deg); */
+  /* transform: scale(50%, 50%); */
+  /* transform: skew(10deg, 10deg); */
+}
+
+/* pseudo classes can be applied to any element, not just anchor tags */
+div:hover{
+  /* mention all the properties in which you want some transition, separte them by commas and maintain the same order in other rules */
+  /* we can write 'all' */
+  /* transition-property: background-color,  transform; */
+  transition-property: all;
+  /* dealay doesn't act between trasnitoin, it always is for the start only */
+  transition-delay: 0.5s;  
+  background-color: midnightblue;
+  /* transition-duration: 2s, 0.5s; */
+  transition-duration: 2s;
+  /* transition-timing-function: linear;  */
+  /*ease is default, start slow then picks up the pace and again slows down, ease in out is also same, linear means at a constant pace, ease-out ends slow, ease-in starts slow */
+}
+
+div:last-child:hover{
+  /* we can see that color is changed completely before, and rotation happens till 1sec late */
+  transform: rotate(180deg); 
+}
+
+/* || ANIMATIONS */
+
+.animate{
+  animation-name: slide;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+  animation-iteration-count: 2;
+  /* normal is default, alterante would means first to right then to left */
+  animation-direction: normal;
+  /* backwards is default, which means to reset the state to original everytime when the transition ends, forwards means to keep the state of the transition when it ends */
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide{
+  0%{
+    transform: translateX(0);
+  }
+  33%{
+    transform: translateX(300px) rotate(180deg);
+  }
+  66%{
+    transform: translateX(-300px) rotate(-180deg);
+  }
+  100%{
+    transform: translateX(0);
+    background-color: rebeccapurple;
+  }
+}

@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* || RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* || GENERAL STYLES */
+body {
+  font: 1.5rem "Nunito", sans-serif;
+  min-height: 100vh;
+
+  background-color: green;
+  background-image: radial-gradient(white, green);
+  display: flex;
+  flex-direction: column;
+}
+
+header, nav, main, footer{
+  display: grid;  
+  place-content: center;
+  grid-template-columns: 100%;
+  text-align: center;
+}
+
+header, footer{
+  position: sticky;
+  background-color: hsl(120, 52%, 18%);
+  color: whitesmoke;
+}
+
+header{
+  /* this value because we declared it to be sticky */
+  top: 0;
+}
+
+nav{
+  background-color: #fff;
+  color: black;
+  padding: 0.5rem;
+  border-bottom: 2px solid black;
+}
+
+main{
+  /* it is also a flex item so */
+  flex-grow: 1; /*now it will take up all the space available to it*/
+}
+
+footer{
+  /* this value because we declared it to be sticky */
+  bottom: 0;
+}
+
+/* SMALL SCREEN SIZES, GO FROM SMALL SCREENS TO BIG SCREENS*/
+/* mid-width has to be read as start from*/
+/* max-width has to be read as up to */
+@media screen and (min-width: 576px){
+  /* previous ones will be used unless overridden */
+  body{
+    background-color: red;
+    background-image: radial-gradient(white, red);
+  }
+
+  nav{
+    display: none; /*this makes the things disappear*/
+  }
+}
+
+/* MEDIUM SIZE */
+@media screen and (min-width: 768px){
+  /* previous ones will be used unless overridden */
+  body{
+    background-color: yellow;
+    background-image: radial-gradient(white, yellow);
+  }
+  /* since we have not mentioned nav, so its gone for this too, since it was gone before */
+}
+
+/* LARGE SIZE */
+@media screen and (min-width: 992px){
+  /* previous ones will be used unless overridden */
+  body{
+    background-color: purple;
+    background-image: radial-gradient(white, purple);
+  }
+  /* since we have not mentioned nav, so its gone for this too, since it was gone before */
+} 
+
+/* MOBILE LANDSCAPE */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4){
+  body{
+    background-color: steelblue;
+    background-image: radial-gradient(white, steelblue);
+  }
+
+  h1, h2{
+    font-size: 1.5rem;
+  }
+
+  nav{
+    /* have to do this again because we didn't choose the min width thing, max height has been hosen so it is kinda different maybe? */
+    display: none;
+  }
+}

@@ -1,0 +1,21 @@
+body {
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    /* background-color: blue; */
+    /* we can simply use background without the color thing */
+    background: papayawhip;
+    color: darkgreen;
+    /* rgb() 0-255 */
+    color: rgb(0,0,100);
+}
+
+p{
+    /* a goes from 0 to 1, 1 meaning same as rgb, it controls transparency of the colors */
+    color: rgba(0,0,0,0.5);
+    /* hexadecimal, 0-9, a-f, #000000 is black, #FFFFFF is white, #FF0000 would be red... */
+    color: #ff0000;
+    /* hex codes have shorthand if they form pairs #00FFAA = #0FA  */
+    /* hsl and hsla way of using colors, you would use it afterwards when you get more comfortable */
+}
+

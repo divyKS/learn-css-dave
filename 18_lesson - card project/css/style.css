@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* || RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* img reset to remove the space below images */
+img{
+  display: block;
+  max-width: 100%; /*do that it doesn't overflow out of the container*/
+  height: auto;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+.nowrap{
+  white-space: nowrap;
+}
+
+/* || GENERAL STYLES */
+body {
+  font: 1.5rem "Nunito", sans-serif;
+  min-height: 100vh;
+  background-color: #475569;
+  background-image: radial-gradient(whitesmoke, #475569);
+  display: flex;
+  flex-direction: column;
+  min-width: 270px;
+}
+
+header,
+footer {
+  position: sticky;
+  background-color: #1e293b;
+  color: whitesmoke;
+  text-align: center;
+}
+
+header {
+  top: 0;
+}
+
+nav {
+  background-color: #fff;
+  padding: 0.5rem;
+  border-bottom: 2px solid #000;
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav a, nav a:visited{
+  color: black;
+}
+
+nav a:hover, nav a:focus{
+  color: hsla(0, 0%, 0%, 0.291);
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.card{
+  scroll-margin-top: 8rem; 
+  /* this should have made the things not scroll under the header but some distance away from it, has to done by trail and eror to find the value */
+  width: min(100%, 350px); /*fill out 100% of the width of the container but only if it is less than 350px, this is like shorthand*/
+  background-color: yellow;
+  border: 2px solid red;
+  border-radius: 15px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card figure{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.card img{
+  border: 5px solid black;
+  border-radius: 50%;
+}
+
+.card figcaption{
+  font-weight: bolder;
+  font-size: 2rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+footer {
+  bottom: 0;
+}
+
+/* till above we are now done designing for the, now from below we will start our media queries for further sizes  */
+
+/* || SMALL */
+@media screen and (min-width: 576px) {
+  main{
+    justify-content: center;
+    flex-flow: row wrap; /*if there can be rows we want them to happen but also to wrap*/
+    padding: 1rem;
+  }
+
+  .card{
+    width: min(100%, 400px);
+  }
+
+  .card:last-child{
+    order: -1;  /*just so that we can see if there has been a change*/
+  }
+}
+
+/* || MEDIUM */
+@media screen and (min-width: 768px) {
+  nav{
+    display: none;
+  }
+
+  .card{
+    width: min(100%, 325px);
+  }
+
+  .card figure{
+    flex-flow: column-reverse; /*this would bring their name on the top*/
+  }
+
+  .card figcaption{
+    margin: 0.1em 0;
+  }
+
+  .card p{
+    margin-top: 1rem;
+  }
+
+  body {
+    background-color: gold;
+    background-image: radial-gradient(whitesmoke, gold);
+  }
+
+}
+
+/* || LARGE */
+@media screen and (min-width: 992px) {
+  .card{
+    width: min(100%, 400px);
+  }
+
+  body {
+    background-color: firebrick;
+    background-image: radial-gradient(whitesmoke, firebrick);
+  }
+}
+
+/* || XL  */
+@media screen and (min-width: 1200px) {
+  .card{
+    /* calc lets us put different units together, mentioning 500px so that the images do not grwbigger from there original size */
+    width: min(calc(33% - 1rem), 500px);
+  }
+  body {
+    background-color: rebeccapurple;
+    background-image: radial-gradient(whitesmoke, rebeccapurple);
+  }
+}
+
+/* || MOBILE DEVICE LANDSCAPE  */
+@media screen and (max-height: 425px) and (min-aspect-ratio: 7/4) {
+  body {
+    background-color: dodgerblue;
+    background-image: radial-gradient(whitesmoke, dodgerblue);
+  }
+
+  h1{
+    font-size: 1.5rem;
+  }
+
+  nav {
+    display: none;
+  }
+
+  main{
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: stretch; /*so that the cards can be of same height if the*/
+  }
+
+  .card{
+    width: min(calc(33% - 0.25rem), 200px);
+  }
+}

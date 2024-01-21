@@ -1,0 +1,46 @@
+body {
+  font-size: 1.5rem;
+}
+
+.columns{
+  /* with just this it will necessary maintain 4 columns, and they need not contain 1 para per column, that depends on the length of the paragrahs */
+  column-count: 4;
+  /* but now if we mention the column width it with never go below that size so it can now go less than 4 columns because if it can't maintian 4 columns of 250px each it will maintain less columns of 250px each, it can even go down to 1 column */
+  column-width: 400px;
+  /* its shorthand is columns: 4 250px; */
+  column-rule: 3px solid black;
+  column-gap: 3rem ;
+  /* but we have a problem that the first para is not aligned properly with the top and and margins of top and botton on para are overlapping, since there is margin collapsing */
+}
+
+.columns p{
+  margin-top: 0;
+}
+
+.columns h2{
+  background-color: #333;
+  color: whitesmoke;
+  margin-top: 0;
+  padding: 1rem;
+  /* now what can happen is that the h2 background can be seen in two columns as it splits up, to avoid that an and keep it inside one column only */
+  break-inside: avoid;
+  /* now if we would want the heading to be everytime on top, we can break column to the one before it, like page break would create new page, column break would  create new new column necessary, this also causes it problems as now it will not let it go down to 1 column  */
+  break-before: column;
+}
+
+.quote{
+  font-size: 2rem;
+  text-align: center;
+  column-span: all;
+  /* it is not well spaced from the top. it well sapced from below because it is a para so has default margin, but since it is inside columns class its top margin has been set to zero so we will have to put ut back */
+  /* margin-top: 300px; but this didn't work because it is less specific than before */
+}
+
+.columns .quote{
+  margin-top:2rem;
+}
+
+.dontwrap{
+  /* we dont want the hyphen or the name to be broken and gone in the next line, we want the hyphen adn the name to remain together always */
+  white-space: nowrap;
+}

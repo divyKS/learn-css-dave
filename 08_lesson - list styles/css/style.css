@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  padding: 5% 10%;
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+
+ol{
+  list-style-type: upper-roman;
+  /* to have it go all the way to left, use padding: 0; */
+}
+
+ul{
+  list-style-type: square;
+  text-align: center; /*doing just this will not align the bullets in the center, for that we have to set the bwlow property to inside, which is set to outside by default*/
+  list-style-position: inside;
+  /* this applies an image as the bullet point */
+  list-style-image: url('../images/checkmark.png');
+}
+
+/* this will override, since it is written after, and also its more specfic since it is nested element */
+li{
+  /* this color , colours the marker as well as the content of the each list item, use marker pseudo element to handle markers separately */
+  color: seagreen;
+}
+
+/* we can select a certain item of the list using a pusedo class */
+/* in place of 2, odd or even can also be written */
+ol li:nth-child(2){
+  color: rgb(241, 14, 226);
+}
+
+/* pseudo element ( not class ) */
+/* this selects the number / circles / sqaures/ etc. that are present in lists */
+/* can remove ul to act on all lists */
+ul ::marker{
+  color: brown;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.2em;
+  /* this content overrides the image and any other type of marker that we have used before */
+  content: "10$->";
+}

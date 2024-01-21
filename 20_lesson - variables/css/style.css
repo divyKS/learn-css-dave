@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLES */
+/* everything in our code inherits from root, even the htmk inherits from it */
+:root{
+  /* var start from two hypens, can be upper/lower case, preffered upper cse to indicate constant */
+  /* to use these do var(--var name) */
+  --BGCOLOR: #475569;
+  --ALT_BGCOLOR: #1E293B;
+
+  /* var can be used for other things than colors to,like fro font we can use it to store the font family, the font sizes */
+  --FF: "Nunito", sans-serif;
+  --FS: 1.5rem;
+  --FS_XL: 3rem;
+
+  /* like for shadowss all properties we can keep values inside one var( helps in having light souce at one direction), and can also use var inside other var  */
+  --SHADOWS: 0 30px 5px -5px (var(--BGCOLOR)) ;
+
+  /* SQUARE */
+  --SQUARE-BGCOLOR: papayawhip;
+  --SQUARE-SIZE: max(150px, 20vw);
+}
+
+/* can write anything in place of dark if we want light mode, but for fark mode we have to write dark only, and this changes based on you system mode dar or light */
+@media (prefers-color-scheme: dark){
+  :root{
+    --BGCOLOR: black;
+    --ALT_BGCOLOR:#333;
+    --RADIAL-COLOR:grey;
+    --SQUARE-BGCOLOR:purple;
+
+  }
+}
+
+/* || GENERAL STYLES */
+body {
+  font: 1.5rem "Nunito", sans-serif;
+  min-height: 100vh;
+
+  background-color: var(--BGCOLOR);
+  background-image: radial-gradient(whitesmoke, var(--BGCOLOR));
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+nav,
+footer {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 100%;
+  text-align: center;
+}
+
+header,
+footer {
+  position: sticky;
+  background-color: var(--ALT_BGCOLOR);
+  color: whitesmoke;
+}
+
+header {
+  top: 0;
+}
+
+nav {
+  background-color: #fff;
+  color: #000;
+  padding: 0.5rem;
+  border-bottom: 2px solid #000;
+  box-shadow: var(--SHADOWS);
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: min(4vw, 15px);
+  padding: 10px 0;;
+}
+
+footer {
+  bottom: 0;
+}
+
+.square--highlight{
+  /* we can change the value of the variable fr this class alone, this is how we also make dark mode */
+  --SQUARE-BGCOLOR: cornflowerblue;
+}
+
+.square{
+  background-color: var(--SQUARE-BGCOLOR);
+  width: var(--SQUARE-SIZE);
+  height: var(--SQUARE-SIZE);
+  border: 2px solid black;
+  border-radius: 15px;
+  display: grid;
+  place-content: center;  /*to align the emoji in center inside the boxes*/
+  font-size: 4rem;
+  box-shadow: var(--SHADOWS);
+}

@@ -1,0 +1,46 @@
+body {
+  font-size: 1.5rem;
+}
+
+.float{
+  width: 20vw;
+  height: 20vw;
+  background-color: black;
+  color: white;
+  padding: 1rem;
+}
+
+.left{
+  /* now the para start from the right of our sqaure */
+  float: left;
+  margin-right: 1rem;
+}
+
+.right{
+  /* now the para start from the right of our sqaure */
+  float: right;
+  /* float was used earlier to create columns etc on a page but now we hve other methods t do it css flex box and grid */
+  margin-left: 1rem;
+}
+
+/* p{
+  doing this wont help create space between the div and the paragraphs no the right, because the div when floated is not in the normal flow of the document
+  margin-left: 20%;
+} */
+
+.clear{
+  /* it sends the content below it to start after the floated item, so that it doesn't wrap */
+  clear:both;
+}
+
+section{
+  /* but since float doesn't follow the normal flow of the page, it is going outside of the section, and the section isn't able to contain it  */
+  /* and without the clear div it start to wrap again */
+  background-color: bisque;
+  border : 1px solid #333;
+  padding: 1rem;
+  /* so to have the container contain the floating thing, we can use overflow */
+  /* overflow: auto; */
+  /* but again that is the old way of doing things, so now we use display: flow-root */
+  display: flow-root;
+}

@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  min-height: 400px;
+  margin-inline: auto;
+  border: 1px solid #000;
+  display: flex; /*this brings the list items in horizontal line*/
+  /* justify contens in hor horizontal  allignment */
+  /* justify-content: flex-start; this is the default value */
+  /* justify-content: flex-end; this puts the things in the right, leaving space in the start */
+  /* justify-content: center; leaves spaces at the start and end  */
+  gap: 1rem;
+  justify-content:center; /*space around, space between*/
+
+  /* align items in for veritical alignment */
+  /* align-items: flex-start; defaut value. flex-end for setting at bottom */
+  align-items: center;
+  /* flex-direction: column; row-reverse column-reverse  */
+  flex-direction: row;
+
+  /* on resizing the flex items would not contain inside the outer parent and would also go outside the page so we wrap the contents */
+  flex-wrap: wrap;
+  /* flex direction and flex wrap combines is flex flow  */
+  align-content: space-evenly; /*this aligns the rows, when we resize and 2-3-4.... rows are formed it aligns those rows*/
+} 
+
+.box {
+  /* min-width: 100px; without this the boxes width will be only their content width types */
+  height: 100px;
+  background-color: #000;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem;
+
+  /* ABOVE THE FLEX PROPERTIES WERE APPLIED TO THE OUTER BOX, WE CAN APPLY FLEX PROPERTISE TO INDIVIDUAL ITEMS TOO (BELOW)  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* above three properties align the number inside the indivodual box in their center */
+
+  flex-grow: 1; /*out of the remaining space after taking up 100px each, that space much be evenly divded and be filled up by both box1 and box2*/
+  /* flex grow starts after the flex basis, in flex shrink it starts shrinking below the flexx basis, so in flex shrink the width can do below the flex basis, and put flex nowrap in flex shrink  otheriwse below flex basis width they will move to the next row*/
+  flex-basis: 100px; /*it is like min width, and when they can't get that 100px width they wrap in nexxt row */
+
+  /* shorthand flex : flex-grow flex-shrink flex-basis; write their values there */
+}
+
+.box:nth-child(2){
+  /* selecting the second box, i.e. box number 2 */
+  flex-grow: 2; /*so now boox 1 and box 2 will fist take up 100px each, then of the remainig space for each space taken by box1, box2 will take twice that space*/
+
+  order : 0;
+}

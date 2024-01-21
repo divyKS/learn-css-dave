@@ -1,0 +1,19 @@
+*{
+    /* there are properties that are set by default so those can be overridden*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    border:2px red dashed;
+    width: 50%;
+}
+main{
+    width: 50vw;
+    background-color: skyblue;
+
+}
+p{
+    font-size: 2rem;
+}

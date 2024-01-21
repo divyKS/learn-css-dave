@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 1rem;
+    font-family: 'Roboto';
+    /* and the things will be aligned in center of their parent element, so if the parent element isn't in center of the whole page, the text isn't going to be the center of the whole page, hence we will use margin of nav on left and right to be auto */
+    text-align: center; /*but due to this the marker of list are still outside and have to be removed or brought inside by that property*/
+
+}
+
+nav{
+    max-width: 500px;
+    /* 0 margin but still not touching the upper wall due to the margin given to all body */
+    margin: 0 auto 0 auto; 
+    border: 2px solid #333333;
+    border-radius: 2rem;
+    font-size: 3rem;
+    line-height: 5rem; /*has to be kept more than font size, otheriwse they will all get smushed into one another*/
+}
+
+h2{
+    padding: 2rem; /*to make its section bigger than other list items so that it can be differtiated*/
+    background-color: skyblue;
+    /* top left, top right, bottom right, bottom left */
+    border-radius: 2rem 2rem 0 0;
+}
+
+ul{
+    /* list-style-position: inside; */
+    list-style-type: none;
+}
+
+li{
+    /* only putting border on top, so that we dont have to round it up from the bottommost item */
+    border-top: 1px solid #333;
+}
+
+li a{
+    /* anchor are inline thing, we have to conver it to block level element so that it takes us the entire space of the li tag and so that in turn we can have the anchor tag take up the enite space of the nav section , and now we can click on the enire area, we dont have to click on the text only*/
+    /* without this the anchor tag and li tag have different size, a lies inside in center of li in that case */
+    display: block;
+}
+
+li a, li a:visited{
+    text-decoration: none;
+    color: #333;
+}
+
+li a:hover, li a:focus{
+    background-color: #333;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+/* we could use nth-child but then we have to count etc. and not extendable, so we use last child */
+/* we require the anchor ta of the last list item, because the background color is applied to achor not the list item li */
+li:last-child a{
+    border-radius:0 0 2rem 2rem ;
+}
+
+/* and since everywhere we selected the a of li in nested way, we left the other outside link as it is */

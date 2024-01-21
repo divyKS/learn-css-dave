@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body { 
+  min-height: 100vh;
+
+  /* after adding those header aside and footer */
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-auto-rows: 75px auto 75px; /*first and last of 75px in between auto*/
+  grid-template-areas:
+  "hd hd hd hd hd hd hd hd hd"
+  "mn mn mn mn mn mn mn sb sb"
+  "ft ft ft ft ft ft ft ft ft";
+  /* but this alone doesn't do things */
+  gap: 1rem ;
+}
+
+
+.el{
+  background-color: rebeccapurple;
+  color: white;
+  display: grid;
+  place-content: center;
+}
+
+.header{
+  grid-area: hd;
+}
+.sidebar{
+  grid-area: sb;
+  background-color: blue;
+}
+.footer{
+  grid-area: ft;
+}
+.container{
+  grid-area: mn;
+  display: grid;
+  /* grid-auto-flow: column; sets column wise but we dont use like this we want to speicify the numbe and size of columns*/
+  grid-template-columns: 1fr 2fr 3fr; /*fr is fraction a unit for grid only, we can give in terms of pizels too, we can also mix picels and fractions*/
+  grid-template-columns: repeat(4, 1fr);/*make 4 columns of 1 fraction each*/
+  grid-template-columns: repeat(2, 1fr 2fr);
+  grid-auto-rows: 300px;
+  grid-auto-rows: minmax(100px, auto); /*minimum they would be 10px and if the conainter has more space then they will equally to fill up the space due to the auto thing*/
+
+  /* gaps are called gutters */
+  column-gap: 1rem;
+  row-gap: 1rem;
+  /* shorthand -> gap: row column; or gap: bothsame; */
+
+}
+
+.box {
+  background-color: #000;
+  color: #fff;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.box:first-child{
+  background-color: blue;
+  /* gird has gird lines as seen in dev tools */
+  /* we can decide how much space and where an element will take in the grid */
+  grid-row-start: 1;
+  grid-row-end: 2;
+  /* shorthand -> grid-row: 1/3; */
+  grid-column-start: 1;
+  grid-column-end: 4;
+  /* shorthand -> grid-column : 1/3; */
+}
+
+.box:nth-child(2){
+  background-color: purple;
+  grid: row 2px / 3px;;
+  grid-column: 1/3;
+
+
+/* just like flex item could also be made flex  */
+  display: grid;
+  align-items: end;
+  justify-content: center;
+  /* shorthand -> align-content: end center */
+}
+
+
+

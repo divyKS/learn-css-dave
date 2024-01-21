@@ -1,0 +1,40 @@
+/* universal selector, used for CSS reset */
+*{
+    font-family: monospace;
+}
+
+body{
+    font-size: 20px;
+}
+
+/* selecting multiple elements at once */
+h1, h2{
+    color: blueviolet;
+}
+
+p{
+    color: purple;
+}
+/* the last css written is the one that gets applied, top down approach, but yes the specificity matter more */
+/* use Inspect in dev tools to know what all CSS have been applied, helpful if you can't figure out why some CSS won't work, to see what all are getting overridden etc. */
+p{
+    color: brown;
+}
+
+.gray{
+    color: gray;
+}
+
+#second{
+    font-style: italic;
+}
+
+/* this works like this, but its beter to avoid this too. Make a class for these too. */
+/* p span{
+    text-transform: uppercase;
+    background-color: gold;
+} */
+.highlight{
+    text-transform: uppercase;
+    background-color: gold;
+}

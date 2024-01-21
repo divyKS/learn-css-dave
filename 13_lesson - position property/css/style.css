@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.5rem;
+  min-height: 200vh; 
+  /* 200viewport means we will always have twice the windows that is being seen, so that we can always scroll */
+}
+
+.outer-container {
+  border: 3px dashed #000;
+  width: 75vw;
+  height: 85vh;
+  margin: 40px auto;
+  position: relative; 
+}
+
+.inner-container {
+  border: 2px solid #00f;
+  width: 40vw;
+  height: 50vh;
+  margin: 200px auto;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  color: #fff;
+  padding: 1rem;
+}
+
+.absolute{
+  background-color: #00f;
+  /* this is the default value for all elements */
+  /* position: static; */
+  position: absolute; /*but this alone doesn't do anything, wehave to set top, down, right , left etc.*/
+  top: 0;
+  left:0;
+  /* and out box is going to the top left of the browser window becase absolute looks for the parent or anssestor with a realtive postioin, if not found then it takes the browser windows as the parent and goes to the top left of it, hence if we put position:relative in the class of outer-container or of inner-container then the box goes to the top left boundary of the outer or inner container respetively */
+  /* putting realtive means that is the standard now, now everything has to be done accoding to that */
+  /* is realtive is present more than one place then the immediate above relative in HTML heircharcy is used */
+  z-index: 1;
+}
+
+.relative{
+  background-color: red;
+  position: relative; /*doing this would not do anything we will have to do top left etc.*/
+  /* in absolute we had to set the relative parent for it */
+  /* is reative we don't have to set it, here the realtive box will align itself according to its parent i.e. the inner container */
+  top: 100px;
+  left:600px;
+  /* and yes it can go outside the boundary of the inner container, it just takes the reference of top left of the inner container by default */
+}
+
+.fixed{
+  background-color: green;
+  position: fixed;
+  /* we can scroll and it will scroll wth us */
+  top: 100px;
+  left:20px;
+}
+
+.sticky{
+  /* it remains on the page till a specified value */
+  /* it scrolls with us only till a certain value */
+  background-color: brown;
+  position: sticky;
+  top: 0; /*it sticks to the top of the broser when scrcolling and is scrolled off the page only when it encounter the boundary of its parent(inner container) and then gets pushed off the page as we scroll*/
+  /* top:100px; means how much space from the top must remain on the browser page when it should start scrolling */
+}
+
+
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+html{
+  scroll-behavior: smooth;
+  /* chrome://flags/#smooth-scrolling enable in google chrome */
+}
+
+section{
+  height: 100vh; /*so that we can get one page for each section*/
+}
+
+.blue{background-color: blue;}
+.red{background-color: red;}
+.green{background-color: green;}
+
+header, footer{
+  height: 100px;
+  color: white;
+  text-align: center;
+}
+
+header{
+  position: sticky;
+  top:0;
+}
+
+footer{
+  background-color: bisque;
+  /*because of fixed, footer didn't take whole width, so wither width:100% or make it sticky*/
+  /* position: fixed;  */
+  position: sticky;
+  bottom: 0;
+}
+
+.social{
+  /* since it is a button it didn't already inherit the font size */
+  font-size: inherit;
+  padding: 1rem;
+  background-color: royalblue;
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 1;
+}

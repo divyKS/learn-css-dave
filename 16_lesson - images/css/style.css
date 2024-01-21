@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* Reset Begins */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img{
+  display: block; /*to remove that little space below the img*/
+}
+/* Reset Ends */
+
+/* Utlity Classes Begin */
+
+.nowrap{
+  /* we do not want the hi and wave emoji, and the i'm and historia to split up on resizing */
+  white-space: nowrap;
+}
+
+.offscreen{
+  /* we want figcaption to be available to screen readers but not to users, so we send it away from screen */
+  position: absolute;
+  left: -10000px;
+}
+
+/* Utlity Classes End*/
+
+body {
+  font-family: "Nunito", sans-serif;
+  min-height: 100vh;
+}
+
+.container{
+  /* all these properties were in hero earlier but not applying to this and still same since the container is now this div */
+  background-color: palevioletred;
+  background-image: url('../img/map-2176x1451.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /*can use this to decide what part of the image we want to see*/
+  background-position: center center; 
+}
+
+.hero{
+  border-bottom: 2px solid black;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+
+  /* this below kinda darkened eveything behind , like a filter, instead of applying just to h1 we applied to whole hero */
+  background-color: hsla(0, 0%, 0%, 0.642);
+  
+  /* background-color: palevioletred;  */
+  /*if the bg img doesn't load, we want there to be some background*/
+  /* background-image: url('../img/map-2176x1451.png'); */
+  /* background-repeat: no-repeat; is deafult, can be repeat-x repeat-y no-repeat */
+  /* if our image is somewhat trasnparent then out bacground color is also visible creating a nice effect */
+  /* background-size: cover; */
+  /* x axis, y axis, blue value,  color of shadow */
+  
+}
+
+.h1{
+  font-size: 500%;
+  color: aliceblue;
+  text-shadow: 2px 2px 5px black;
+  /* below is preferred, but showing another way by div */
+  /* background-color: hsla(0, 0%, 0%, 0.396);
+  padding: .25rem;
+  border-radius: 10px; */
+}
+
+.profilePic-figure{
+  width: 35%; /*of the page/outer container*/ /*but this alone doesn't make the image smaller*/ /*image was still big, because mabe it was overflowing due to that 800x800 size in html, but when we correct it by css to be 100% of its container then it works*/
+}
+
+.profilePic-figure img{
+  width: 100%; /*of its container i.e. figure tag*/
+  height: auto; /*these two make the image responsive*/
+  min-width: 100px;
+  border: 5px double red;
+  border-radius: 50%;
+}
+
+.example{
+  border: 1px solid red;
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+.example img{
+  width: 25%; /* not 25% of its 200px, 25% of the container, so it will adjust accordinly*/
+  height: auto; /*mention it, dont let it auto adjust*/
+}
+
+
+

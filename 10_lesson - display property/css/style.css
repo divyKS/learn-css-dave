@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+p{
+  background-color: lightgray;
+  /* top bottom right left
+  margin: 30px 60px; */
+}
+
+.opposite{
+  display: inline-block;
+  background-color: black;
+  color: white;
+  /* if we just do padding it will start going outside the block of paragraph and will hide the upper para too */
+  /* padding: 4rem;
+  margin-top:4rem; */
+  padding: 4rem;
+  margin-top: 4rem;
+  height: 400px;
+}
+
+/* main{
+  width: 50%;
+  background-color: aqua;
+} */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+}
+
+ul{
+  /* removing the bullets */
+  list-style-type: none;
+  background-color: #333;
+  text-align: right;
+  /* can use some padding here since all was set to 0, to get some space for out items we can use padding */
+  padding: 1rem;
+
+  /* if css reset wassn't done, do here padding left = 0, margin = 0 */
+  /* this doesn't work, since we have to apply color on anchor items color: whitesmoke; */
+}
+
+li{
+  /* this pushes all in a single line, not stacked over one another */
+  display: inline-block;
+  /* to get some margin on the left and right, instead of doing margin-left/right, we can use margin-inline */
+  margin-inline:1rem;
+
+
+}
+
+
+a{
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+li a:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+body{
+    padding: 10%;
+    font-size: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+/* doing font-size on body doesn't work on form elements, it does on label but that is it, so input and submit button dont change accordingly */
+/* 
+input, button{
+    font: inherit;
+} */
+
+p{
+    line-height: 2;
+}
