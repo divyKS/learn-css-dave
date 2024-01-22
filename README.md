@@ -1,6 +1,8 @@
 # Learning CSS
 This repository contains the code that I did when learning HTML from [Dave Gray](https://www.youtube.com/watch?v=n4R2E7O-Ngo).
-I learnt about - 
+
+**I learnt about** -
+
 1. **CSS Selectors** - `id` and `class`
 2. CSS color, font, background
 3. **Various CSS units** - px, rem, vw, vh
