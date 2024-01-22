@@ -1,3 +1,4 @@
+# Learning CSS
 This repository contains the code that I did when learning HTML from [Dave Gray](https://www.youtube.com/watch?v=n4R2E7O-Ngo).
 I learnt about - 
 1. **CSS Selectors** - `id` and `class`
